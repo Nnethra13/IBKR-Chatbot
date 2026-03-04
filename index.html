@@ -35,16 +35,46 @@
 
       <main>
         <section class="hero" id="top">
+          <div class="hero-chat-wrapper" id="chatbot">
+            <div class="chat-window">
+              <div class="chat-header">
+                <div class="chat-title">
+                  <span class="status-dot"></span>
+                  <span>IBKR Trading Chatbot</span>
+                </div>
+                <span class="chat-tag">Demo</span>
+              </div>
+
+              <div class="chat-body" id="chat-body">
+                <!-- Optional: add a few example messages here, or leave empty and populate via your own integration. -->
+              </div>
+
+              <form class="chat-input-row" id="chat-form">
+                <input
+                  type="text"
+                  id="chat-input"
+                  autocomplete="off"
+                  placeholder="Ask the IBKR chatbot anything about the competition..."
+                />
+                <button type="submit">Send</button>
+              </form>
+              <p class="chat-caption">
+                This is a demo chatbot experience. Connect it to your own backend, data, or trading
+                logic for the full competition build.
+              </p>
+            </div>
+          </div>
+
           <div class="hero-text">
-            <p class="eyebrow">Trading Competition</p>
-            <h1>Your trading chatbot & competition headline goes here.</h1>
+            <p class="eyebrow">IBKR Trading Chatbot</p>
+            <h1>Make the chatbot the main way people explore your trading ideas.</h1>
             <p class="subcopy">
-              Add a short description of your chatbot and competition here. You can briefly explain
-              who it is for, what makes it unique, and why people should participate.
+              This landing page puts the chatbot front and center so visitors can talk to it right
+              away, then learn more about your IBKR trading competition, rules, and prizes.
             </p>
             <div class="hero-actions">
-              <a href="#register" class="primary-cta">Add main call-to-action</a>
-              <a href="#chatbot" class="secondary-cta">Scroll to chatbot section</a>
+              <a href="#chatbot" class="primary-cta">Start chatting with the bot</a>
+              <a href="#register" class="secondary-cta">Register for the competition</a>
             </div>
             <div class="meta-row">
               <div>
@@ -59,33 +89,6 @@
                 <p class="meta-label">Format</p>
                 <p class="meta-value">Add competition format/mode</p>
               </div>
-            </div>
-          </div>
-
-          <div class="hero-chat-wrapper" id="chatbot">
-            <div class="chat-window">
-              <div class="chat-header">
-                <div class="chat-title">
-                  <span class="status-dot"></span>
-                  <span>Your Trading Chatbot</span>
-                </div>
-                <span class="chat-tag">Demo</span>
-              </div>
-
-              <div class="chat-body" id="chat-body">
-                <!-- Optional: add a few example messages here, or leave empty and populate via your own integration. -->
-              </div>
-
-              <form class="chat-input-row" id="chat-form">
-                <input
-                  type="text"
-                  id="chat-input"
-                  autocomplete="off"
-                  placeholder="Type a message to your chatbot..."
-                />
-                <button type="submit">Send</button>
-              </form>
-              <p class="chat-caption">Add a short note or disclaimer about your chatbot here.</p>
             </div>
           </div>
         </section>
