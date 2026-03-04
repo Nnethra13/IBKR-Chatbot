@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trading Chatbot Competition</title>
+    <meta
+      name="description"
+      content="Landing page for a trading chatbot and competition details."
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="top-nav">
+        <div class="logo-mark">
+          <span class="logo-dot"></span>
+          <span class="logo-text">Trading Chatbot</span>
+        </div>
+        <nav class="nav-links">
+          <a href="#about">About</a>
+          <a href="#how-it-works">How it works</a>
+          <a href="#prizes">Prizes</a>
+          <a href="#rules">Rules</a>
+          <a href="#faq">FAQ</a>
+        </nav>
+        <a href="#register" class="nav-cta">Register</a>
+      </header>
+
+      <main>
+        <section class="hero" id="top">
+          <div class="hero-text">
+            <p class="eyebrow">Trading Competition</p>
+            <h1>Your trading chatbot & competition headline goes here.</h1>
+            <p class="subcopy">
+              Add a short description of your chatbot and competition here. You can briefly explain
+              who it is for, what makes it unique, and why people should participate.
+            </p>
+            <div class="hero-actions">
+              <a href="#register" class="primary-cta">Add main call-to-action</a>
+              <a href="#chatbot" class="secondary-cta">Scroll to chatbot section</a>
+            </div>
+            <div class="meta-row">
+              <div>
+                <p class="meta-label">Key date</p>
+                <p class="meta-value">Add registration or kickoff date</p>
+              </div>
+              <div>
+                <p class="meta-label">Participation</p>
+                <p class="meta-value">Add who can join</p>
+              </div>
+              <div>
+                <p class="meta-label">Format</p>
+                <p class="meta-value">Add competition format/mode</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-chat-wrapper" id="chatbot">
+            <div class="chat-window">
+              <div class="chat-header">
+                <div class="chat-title">
+                  <span class="status-dot"></span>
+                  <span>Your Trading Chatbot</span>
+                </div>
+                <span class="chat-tag">Demo</span>
+              </div>
+
+              <div class="chat-body" id="chat-body">
+                <!-- Optional: add a few example messages here, or leave empty and populate via your own integration. -->
+              </div>
+
+              <form class="chat-input-row" id="chat-form">
+                <input
+                  type="text"
+                  id="chat-input"
+                  autocomplete="off"
+                  placeholder="Type a message to your chatbot..."
+                />
+                <button type="submit">Send</button>
+              </form>
+              <p class="chat-caption">Add a short note or disclaimer about your chatbot here.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="section-grid" id="about">
+          <div class="section-copy">
+            <h2>About the competition</h2>
+            <p>
+              Use this space to describe your trading competition. Explain the purpose, who it’s
+              designed for, and what participants will build or achieve.
+            </p>
+            <ul class="pill-list">
+              <li>Add key theme or focus</li>
+              <li>Add target participants</li>
+              <li>Add unique value or angle</li>
+              <li>Add any other highlight</li>
+            </ul>
+          </div>
+          <div class="section-card">
+            <h3>Judging criteria (optional)</h3>
+            <ul class="criteria-list">
+              <li>Add how projects will be evaluated.</li>
+              <li>Add what judges are looking for.</li>
+              <li>Add any weighting or special categories.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="section-split" id="how-it-works">
+          <div>
+            <h2>How it works</h2>
+            <ol class="steps-list">
+              <li>Add step 1 (for example: how to register or apply).</li>
+              <li>Add step 2 (for example: how to build or submit the project).</li>
+              <li>Add step 3 (for example: how judging and results work).</li>
+            </ol>
+          </div>
+          <div class="timeline">
+            <h3>Timeline</h3>
+            <p class="timeline-text">
+              Use this card to outline your full timeline (registration dates, build period,
+              submission deadline, and results announcement).
+            </p>
+            <div class="timeline-row">
+              <span class="timeline-pill">Phase 1</span>
+              <div>
+                <p class="timeline-title">Add first phase title</p>
+                <p class="timeline-text">Add details for this phase.</p>
+              </div>
+            </div>
+            <div class="timeline-row">
+              <span class="timeline-pill">Phase 2</span>
+              <div>
+                <p class="timeline-title">Add second phase title</p>
+                <p class="timeline-text">Add details for this phase.</p>
+              </div>
+            </div>
+            <div class="timeline-row">
+              <span class="timeline-pill">Phase 3</span>
+              <div>
+                <p class="timeline-title">Add third phase title</p>
+                <p class="timeline-text">Add details for this phase.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section-grid" id="prizes">
+          <div class="section-copy">
+            <h2>Prizes & recognition</h2>
+            <p>
+              Use this area to describe your prize pool, recognition, and any additional perks or
+              opportunities for participants.
+            </p>
+            <ul class="prize-list">
+              <li>Add first place prize details.</li>
+              <li>Add second place prize details.</li>
+              <li>Add third place prize or other awards.</li>
+            </ul>
+          </div>
+          <div class="section-card highlight" id="register">
+            <h3>Registration</h3>
+            <p>Describe how and where participants should register for your competition.</p>
+            <a href="#" class="primary-cta full-width">Add registration link</a>
+            <p class="small-print">Optional: add any registration notes or terms here.</p>
+          </div>
+        </section>
+
+        <section class="section-split" id="rules">
+          <div>
+            <h2>Eligibility & rules</h2>
+            <ul class="rules-list">
+              <li>Add who is eligible to participate.</li>
+              <li>Add allowed team size and other constraints.</li>
+              <li>Add any technical or compliance requirements.</li>
+              <li>Add any important do’s and don’ts.</li>
+            </ul>
+          </div>
+          <div>
+            <h3>What you’ll submit</h3>
+            <ul class="rules-list">
+              <li>Add what artefacts teams must provide (e.g., demo, code, write-up).</li>
+              <li>Add any format or length requirements.</li>
+              <li>Add where submissions should be uploaded or sent.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="section-faq" id="faq">
+          <h2>FAQ</h2>
+          <div class="faq-grid">
+            <details>
+              <summary>Add an FAQ question</summary>
+              <p>Add the answer to your FAQ question here.</p>
+            </details>
+            <details>
+              <summary>Add another FAQ question</summary>
+              <p>Add the answer here.</p>
+            </details>
+            <details>
+              <summary>Add a question about the chatbot</summary>
+              <p>Use this to explain how your chatbot works or how it is used.</p>
+            </details>
+            <details>
+              <summary>Add any other common question</summary>
+              <p>Add the answer here.</p>
+            </details>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <p>Add your competition or organization name here.</p>
+        <p class="footer-meta">Add footer details, sponsors, or contact info here.</p>
+      </footer>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
+
