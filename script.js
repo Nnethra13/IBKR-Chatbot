@@ -2,13 +2,6 @@ const chatBody = document.getElementById('chat-body');
 const chatForm = document.getElementById('chat-form');
 const chatInput = document.getElementById('chat-input');
 
-const cannedReplies = [
-  "In the full competition build, this is where you'd plug into real market data or a backtesting engine.",
-  'Think about how you want to handle risk (position sizing, stop losses) before suggesting trades.',
-  'You could design flows for: idea discovery, risk checks, and post-trade review.',
-  'Great question. For the competition, focus on clarity and explainability when the bot suggests anything.',
-];
-
 function appendMessage(text, role = 'bot') {
   const bubble = document.createElement('div');
   bubble.className = `chat-bubble ${role}`;
@@ -28,36 +21,55 @@ function appendMessage(text, role = 'bot') {
   chatBody.scrollTop = chatBody.scrollHeight;
 }
 
-function getReply(userText) {
-  const lower = userText.toLowerCase();
-  if (lower.includes('rule') || lower.includes('competition')) {
-    return 'For competition specifics, you’ll have an official rulebook. This demo is focused on the chatbot UX and flow design.';
-  }
-  if (lower.includes('risk') || lower.includes('drawdown')) {
-    return 'You might implement risk checks like max drawdown, per-trade risk, and exposure by asset class. How would your bot surface those?';
-  }
-  if (lower.includes('ticker') || lower.includes('stock') || lower.includes('etf')) {
-    return 'In a full version, I would fetch price, basic fundamentals, and relevant risk notes for that ticker from your data source.';
-  }
-  if (lower.includes('start') || lower.includes('get started')) {
-    return 'A good first step: map a sample user journey, like a student exploring a new strategy, then design the conversation around that.';
-  }
+async function fetchBotReply(message) {
+  const response = await fetch('/api/chat', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ message }),
+  });
 
-  return cannedReplies[Math.floor(Math.random() * cannedReplies.length)];
+  const data = await response.json().catch(() => ({}));
+  if (!response.ok) {
+    const details = data?.details ? `\n\n${JSON.stringify(data.details, null, 2)}` : '';
+    throw new Error((data?.error || 'Request failed') + details);
+  }
+  return data?.reply || 'Sorry — I did not get a response.';
 }
 
 if (chatForm && chatInput) {
   chatForm.addEventListener('submit', (event) => {
     event.preventDefault();
-    const text = chatInput.value.trim();
-    if (!text) return;
+    void (async () => {
+      const text = chatInput.value.trim();
+      if (!text) return;
 
-    appendMessage(text, 'user');
-    chatInput.value = '';
+      appendMessage(text, 'user');
+      chatInput.value = '';
 
-    setTimeout(() => {
-      appendMessage(getReply(text), 'bot');
-    }, 450);
+      const previousDisabled = chatInput.disabled;
+      chatInput.disabled = true;
+
+      try {
+        const reply = await fetchBotReply(text);
+        appendMessage(reply, 'bot');
+      } catch (err) {
+        appendMessage(
+          `Couldn’t reach the chatbot server.\n\n${err instanceof Error ? err.message : 'Unknown error'}`,
+          'bot',
+        );
+      } finally {
+        chatInput.disabled = previousDisabled;
+        chatInput.focus();
+      }
+    })();
   });
+}
+
+// Initial welcome message from the chatbot
+if (chatBody) {
+  appendMessage(
+    "Hi! I am here to help with the IBKR competition. Ask me anything about the rules, timeline, deliverables, or logistics, and I will point you to the relevant info! If something isn’t covered in our materials, I will direct you in the right direction!",
+    'bot',
+  );
 }
 
