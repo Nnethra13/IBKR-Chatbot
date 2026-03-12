@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="220" height="44" viewBox="0 0 220 44" fill="none" role="img" aria-label="Gies Illinois">
+  <defs>
+    <linearGradient id="a" x1="0" y1="0" x2="220" y2="44" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FF6A13"/>
+      <stop offset=".58" stop-color="#FF6A13" stop-opacity=".95"/>
+      <stop offset="1" stop-color="#2D6CDF"/>
+    </linearGradient>
+  </defs>
+  <rect x="1" y="1" width="42" height="42" rx="12" fill="#0B1226" stroke="rgba(191,219,254,0.55)" />
+  <path d="M12.5 28.5c6.2-14.2 11.8-14.2 18 0" stroke="url(#a)" stroke-width="3.2" stroke-linecap="round"/>
+  <path d="M14 18.5h17" stroke="rgba(255,255,255,0.85)" stroke-width="2.6" stroke-linecap="round"/>
+  <text x="54" y="20" fill="rgba(255,255,255,0.92)" font-family="Inter, system-ui, -apple-system, Segoe UI, sans-serif" font-size="15" font-weight="700" letter-spacing=".02em">Gies</text>
+  <text x="54" y="36" fill="rgba(191,219,254,0.85)" font-family="Inter, system-ui, -apple-system, Segoe UI, sans-serif" font-size="13" font-weight="600" letter-spacing=".02em">Illinois</text>
+</svg>
