@@ -5,8 +5,16 @@ const chatInput = document.getElementById('chat-input');
 function appendMessage(text, role = 'bot') {
   const bubble = document.createElement('div');
   bubble.className = `chat-bubble ${role}`;
-  const p = document.createElement('p');
-  p.textContent = text;
+  // const p = document.createElement('p');
+  // p.textContent = text;
+  // bubble.appendChild(p);
+
+  const p = document.createElement('div');
+  if (role === 'bot') {
+    p.innerHTML = marked.parse(text);
+  } else {
+    p.textContent = text;
+  }
   bubble.appendChild(p);
 
   const ts = document.createElement('span');
