@@ -5,9 +5,6 @@ const chatInput = document.getElementById('chat-input');
 function appendMessage(text, role = 'bot') {
   const bubble = document.createElement('div');
   bubble.className = `chat-bubble ${role}`;
-  // const p = document.createElement('p');
-  // p.textContent = text;
-  // bubble.appendChild(p);
 
   const p = document.createElement('div');
   if (role === 'bot') {
@@ -27,6 +24,29 @@ function appendMessage(text, role = 'bot') {
 
   chatBody.appendChild(bubble);
   chatBody.scrollTop = chatBody.scrollHeight;
+}
+
+function showTypingIndicator(label = 'Thinking') {
+  const bubble = document.createElement('div');
+  bubble.className = 'chat-bubble bot typing-indicator';
+  bubble.id = 'typing-bubble';
+
+  bubble.innerHTML = `
+    <div class="thinking-row">
+      <span class="thinking-text">${label}</span>
+      <span class="typing-dots">
+        <span></span><span></span><span></span>
+      </span>
+    </div>
+  `;
+
+  chatBody.appendChild(bubble);
+  chatBody.scrollTop = chatBody.scrollHeight;
+}
+
+function removeTypingIndicator() {
+  const el = document.getElementById('typing-bubble');
+  if (el) el.remove();
 }
 
 async function fetchBotReply(message) {
@@ -54,19 +74,21 @@ if (chatForm && chatInput) {
       appendMessage(text, 'user');
       chatInput.value = '';
 
-      const previousDisabled = chatInput.disabled;
       chatInput.disabled = true;
+      showTypingIndicator(); // <-- show dots while waiting
 
       try {
         const reply = await fetchBotReply(text);
+        removeTypingIndicator(); // <-- remove dots before showing reply
         appendMessage(reply, 'bot');
       } catch (err) {
+        removeTypingIndicator();
         appendMessage(
-          `Couldn’t reach the chatbot server.\n\n${err instanceof Error ? err.message : 'Unknown error'}`,
+          `Couldn't reach the chatbot server.\n\n${err instanceof Error ? err.message : 'Unknown error'}`,
           'bot',
         );
       } finally {
-        chatInput.disabled = previousDisabled;
+        chatInput.disabled = false;
         chatInput.focus();
       }
     })();
@@ -76,8 +98,7 @@ if (chatForm && chatInput) {
 // Initial welcome message from the chatbot
 if (chatBody) {
   appendMessage(
-    "Hi! I am here to help with the IBKR competition. Ask me anything about the rules, timeline, deliverables, or logistics, and I will point you to the relevant info! If something isn’t covered in our materials, I will direct you in the right direction!",
+    "Hi! I am here to help with the IBKR competition. Ask me anything about the rules, timeline, deliverables, or logistics, and I will point you to the relevant info! If something isn't covered in our materials, I will direct you in the right direction!",
     'bot',
   );
 }
-

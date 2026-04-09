@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>IBKR x Bridgewater Trading Competition</title>
+    <title>Gies IBKR Trading Competition · Fall 2026</title>
     <meta
       name="description"
-      content="Landing page for a trading chatbot and competition details."
+      content="Gies x IBKR x Bridgewater — IBKR paper trading for UIUC students. Eligibility, platform, trading rules, scoring, governance, conduct, timeline, TRACE chatbot."
     />
     <link rel="stylesheet" href="styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -31,9 +31,11 @@
         </div>
         <nav class="nav-links">
           <a href="#about">About</a>
-          <a href="#how-it-works">How it works</a>
-          <a href="#prizes">Prizes</a>
           <a href="#rules">Rules</a>
+          <a href="#how-it-works">How it works</a>
+          <a href="#register">Registration</a>
+          <a href="#conduct">Conduct</a>
+          <a href="#governance">Governance</a>
           <a href="#faq">FAQ</a>
         </nav>
         <a href="#register" class="nav-cta">Register</a>
@@ -51,16 +53,14 @@
                 <span class="chat-tag">Demo</span>
               </div>
 
-              <div class="chat-body" id="chat-body">
-                <!-- Optional: add a few example messages here, or leave empty and populate via your own integration. -->
-              </div>
+              <div class="chat-body" id="chat-body"></div>
 
               <form class="chat-input-row" id="chat-form">
                 <input
                   type="text"
                   id="chat-input"
                   autocomplete="off"
-                  placeholder="Ask the IBKR chatbot anything about the competition..."
+                  placeholder="Ask about rules, timeline, scoring, or eligibility…"
                 />
                 <button type="submit">Send</button>
               </form>
@@ -68,28 +68,35 @@
           </div>
 
           <div class="hero-text">
-            <p class="eyebrow">TRACE (Trading Resource and Competition Engine)</p>
-            <h1>IBKR x Bridgewater Trading Competition</h1>
+            <p class="eyebrow">Gies x IBKR x Bridgewater</p>
+            <h1 class="hero-title">
+              <span class="hero-title-line hero-title-line--partners">GIES × IBKR × Bridgewater</span>
+              <span class="hero-title-line hero-title-line--event">Trading Competition</span>
+            </h1>
             <p class="subcopy">
-              This landing page puts the chatbot front and center so visitors can talk to it right
-              away, then learn more about your IBKR trading competition, rules, and prizes.
+              Official rules charter and governance framework. An educational initiative for
+              University of Illinois students to gain hands-on experience in the Interactive
+              Brokers paper trading environment. The primary goal is not simply the highest paper
+              profits, but sound investment principles, disciplined research habits, and thoughtful
+              risk management. Every rule and design decision serves that educational mission, and
+              any future change must serve the same end.
             </p>
             <div class="hero-actions">
-              <a href="#chatbot" class="primary-cta">Start chatting with the bot</a>
-              <a href="#register" class="secondary-cta">Register for the competition</a>
+              <a href="#chatbot" class="primary-cta">Chat with TRACE</a>
+              <a href="#register" class="secondary-cta">Registration</a>
             </div>
             <div class="meta-row">
               <div>
-                <p class="meta-label">Key date</p>
-                <p class="meta-value">Add registration or kickoff date</p>
+                <p class="meta-label">Cycle</p>
+                <p class="meta-value">Fall 2026 · live trading dates TBC</p>
               </div>
               <div>
-                <p class="meta-label">Participation</p>
-                <p class="meta-value">Add who can join</p>
+                <p class="meta-label">Who can join</p>
+                <p class="meta-value">UIUC students · teams of 2–4 · parallel tracks by level</p>
               </div>
               <div>
                 <p class="meta-label">Format</p>
-                <p class="meta-value">Add competition format/mode</p>
+                <p class="meta-value">IBKR paper · $100k virtual per team · human-directed trades</p>
               </div>
             </div>
           </div>
@@ -97,104 +104,493 @@
 
         <section class="section-grid" id="about">
           <div class="section-copy">
-            <h2>About the competition</h2>
+            <h2>About the program</h2>
             <p>
-              Use this space to describe your trading competition. Explain the purpose, who it’s
-              designed for, and what participants will build or achieve.
+              The competition is organized with DLAB Consulting and Gies College of Business. You
+              trade in IBKR’s paper environment with the same starting capital as every other team,
+              document your reasoning, and are evaluated on both results and how clearly you
+              explain your strategy.
             </p>
             <ul class="pill-list">
-              <li>Add key theme or focus</li>
-              <li>Add target participants</li>
-              <li>Add unique value or angle</li>
-              <li>Add any other highlight</li>
+              <li>Real-market workflow without real-money risk (paper accounts only)</li>
+              <li>
+                Governance checkpoints: Rule Freeze before launch, Tech Green-Light, and a
+                mid-competition health review
+              </li>
+              <li>Aligned with university academic integrity and zero tolerance for insider trading</li>
+              <li>Document version 2.0 (Spring 2026) — draft, pending approval</li>
             </ul>
           </div>
           <div class="section-card">
-            <h3>Judging criteria (optional)</h3>
-            <ul class="criteria-list">
-              <li>Add how projects will be evaluated.</li>
-              <li>Add what judges are looking for.</li>
-              <li>Add any weighting or special categories.</li>
-            </ul>
+            <h3>Document &amp; preparation</h3>
+            <p class="timeline-text">
+              Prepared by Grace, Daniel, Pranav, Amar, Villy, Paul, Elizabeth, and Nathan. This page
+              summarizes the official rules charter; if anything here conflicts with a later
+              published PDF, follow the published document.
+            </p>
           </div>
         </section>
 
-        <section class="section-split" id="how-it-works">
-          <div>
+        <div class="rules-stack" id="rules">
+          <section class="section-split" aria-labelledby="eligibility-heading">
+            <div>
+              <h2 id="eligibility-heading">Eligibility &amp; competition tiers</h2>
+              <ul class="rules-list">
+                <li>
+                  The competition runs <strong>two parallel tracks</strong> for participants at
+                  different experience levels and from different backgrounds.
+                </li>
+                <li>
+                  <strong>Gies Invitational:</strong> Open exclusively to currently enrolled University
+                  of Illinois Urbana-Champaign students. Intended for participants with prior
+                  coursework in finance, analytics, or investing—a more competitive,
+                  performance-focused environment.
+                </li>
+                <li>
+                  A parallel track serves other experience levels; organizers publish full tier
+                  definitions before registration.
+                </li>
+                <li>
+                  <strong>Teams:</strong> 2–4 members per team. All members must be currently enrolled
+                  UIUC students. Faculty and staff are not eligible to compete.
+                </li>
+                <li>
+                  Teams must register by the published registration deadline. Each participant may
+                  belong to <strong>only one team</strong>.
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h2>Platform, capital &amp; instruments</h2>
+              <ul class="rules-list">
+                <li>
+                  <strong>Platform:</strong> Interactive Brokers (IBKR) paper trading environment
+                  only. All accounts are paper—no real money. Starting capital: <strong>$100,000
+                  virtual USD per team</strong>, equal for all teams.
+                </li>
+                <li>
+                  <strong>Approved asset classes:</strong> U.S. equities listed on NYSE, NASDAQ, or
+                  AMEX; exchange-traded funds (ETFs); futures if IBKR supports them; equity options
+                  (standard expiration cycles only), subject to IBKR account settings; derivatives
+                  (e.g., futures, commodities) only if IBKR supports them <strong>and organizers
+                  enable them</strong>.
+                </li>
+                <li>
+                  <strong>Prohibited instruments:</strong> Cryptocurrencies and digital assets; bonds
+                  and fixed-income securities; forex and currency trading; and any instrument not
+                  listed among the approved asset classes above.
+                </li>
+              </ul>
+            </div>
+          </section>
+
+          <section class="section-split" aria-labelledby="trading-heading">
+            <div>
+              <h2 id="trading-heading">Trading window, orders &amp; limits</h2>
+              <ul class="rules-list">
+                <li>
+                  <strong>Trading dates:</strong> Only during the official competition period (dates
+                  to be confirmed). <strong>Trading hours:</strong> 8:30 AM–3:00 PM Central Time,
+                  Monday through Friday. No trading outside these hours or on market holidays. All
+                  timestamps are recorded in Central Time; all values are in U.S. dollars.
+                </li>
+                <li>
+                  <strong>Order types permitted:</strong> Market, limit, stop-loss, and bracket
+                  orders. Both long and short positions are allowed.
+                  <strong>Margin:</strong> Not permitted unless explicitly supported and confirmed by
+                  IBKR demo account settings.
+                </li>
+                <li>
+                  <strong>Daily transaction limits:</strong> Minimum transactions per day: 0 (no
+                  forced daily trading). Maximum transactions per single security per day: 25 trades.
+                  Organizers may set a weekly minimum activity threshold to prevent complete
+                  inactivity.
+                </li>
+                <li>
+                  <strong>Position limits:</strong> No more than <strong>25% of starting capital
+                  ($25,000)</strong> may be invested in any single security at any one time. Total
+                  options exposure may not exceed <strong>50% of the portfolio</strong> at any one
+                  time.
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h2>Algorithmic trading policy</h2>
+              <p class="timeline-text">
+                The competition rewards human research and judgment—not automated systems.
+              </p>
+              <ul class="rules-list">
+                <li>
+                  <strong>Strictly prohibited:</strong> Bots, scripts, macros, or any automated
+                  trading programs; algorithmic microtransaction strategies designed to exploit small
+                  price movements at high frequency; any automation that executes trades without
+                  direct human decision-making per transaction.
+                </li>
+                <li>
+                  <strong>Permitted:</strong> AI tools used for research, screening, and analysis
+                  (for example ChatGPT for summarizing news, AI stock screeners)—educational use that
+                  does not automate execution.
+                </li>
+                <li>
+                  <strong>Enforcement:</strong> Accounts suspected of algorithmic activity are flagged
+                  by the Tech Lead for review. Confirmed violations result in immediate
+                  disqualification.
+                </li>
+              </ul>
+            </div>
+          </section>
+
+          <section class="section-grid">
+            <div class="section-copy">
+              <h2>Scoring methodology</h2>
+              <p>
+                Scoring is split equally between financial performance and quality of reasoning,
+                reflecting the educational mission.
+              </p>
+              <ul class="criteria-list">
+                <li>
+                  <strong>Portfolio performance (50%):</strong> Final account balance and P&amp;L,
+                  together with key risk-adjusted performance metrics. Rankings are determined by
+                  P&amp;L and key risk-adjusted metrics.
+                </li>
+                <li>
+                  <strong>Strategy &amp; rationale (50%):</strong> Trade memos, final presentation or
+                  summary, and quality of research cited—evaluated by a panel of judges. Judges
+                  evaluate consistency of strategy and quality of reasoning.
+                </li>
+                <li>
+                  <strong>Trade memos:</strong> Five trades must be accompanied by a brief memo
+                  (2–3 sentences) submitted through the official platform or form. Each memo must
+                  state: (1) the investment thesis, (2) the financial resource(s) consulted, and (3)
+                  the expected outcome.
+                </li>
+                <li>
+                  At competition close, teams must submit a <strong>1–2 page strategy summary</strong>
+                  or short presentation outlining their overall approach.
+                </li>
+              </ul>
+            </div>
+            <div class="section-card">
+              <h3>Penalties &amp; enforcement</h3>
+              <ul class="criteria-list">
+                <li>
+                  Exceeding position limits: <strong>−5% deduction from the total P&amp;L score</strong>
+                  per violation.
+                </li>
+                <li>
+                  Code of conduct violations: <strong>point deductions or disqualification</strong> at
+                  judges’ discretion.
+                </li>
+                <li>
+                  Confirmed algorithmic trading: <strong>immediate disqualification</strong>.
+                </li>
+                <li>
+                  Confirmed insider trading: <strong>immediate disqualification</strong>; may be
+                  referred to university or legal authorities.
+                </li>
+              </ul>
+            </div>
+          </section>
+        </div>
+
+        <section class="section-how" id="how-it-works">
+          <div class="how-block how-block--steps">
             <h2>How it works</h2>
-            <ol class="steps-list">
-              <li>Add step 1 (for example: how to register or apply).</li>
-              <li>Add step 2 (for example: how to build or submit the project).</li>
-              <li>Add step 3 (for example: how judging and results work).</li>
+            <p class="how-lead">
+              From registration through onboarding, live trading, and close-out—these are the steps
+              each team follows.
+            </p>
+            <ol class="steps-list steps-list--how">
+              <li>
+                <span class="step-title">Register your team</span>
+                <span class="step-body"
+                  >2–4 members, all enrolled UIUC students, by the published deadline. Each student
+                  may only be on one team.</span
+                >
+              </li>
+              <li>
+                <span class="step-title">Onboard</span>
+                <span class="step-body"
+                  >Receive credentials, use the sandbox (3–5 day practice window), and attend the
+                  mandatory <strong>Rules &amp; Ethics</strong> webinar before live trading.</span
+                >
+              </li>
+              <li>
+                <span class="step-title">Trade the live window</span>
+                <span class="step-body"
+                  >Official hours 8:30 AM–3:00 PM CT, Mon–Fri—no trading outside those hours or on
+                  market holidays.</span
+                >
+              </li>
+              <li>
+                <span class="step-title">Document your work</span>
+                <span class="step-body"
+                  >Submit required trade memos and, at close, a 1–2 page strategy summary or short
+                  presentation.</span
+                >
+              </li>
+              <li>
+                <span class="step-title">After trading ends</span>
+                <span class="step-body"
+                  >Accounts frozen; top portfolios audited; judges review rationale; final audit
+                  report. Awards ceremony with IBKR networking, survey, and operations
+                  retrospective.</span
+                >
+              </li>
             </ol>
           </div>
-          <div class="timeline">
-            <h3>Timeline</h3>
+          <div class="how-block how-block--timeline">
+            <div class="timeline">
+            <h3>Program timeline</h3>
             <p class="timeline-text">
-              Use this card to outline your full timeline (registration dates, build period,
-              submission deadline, and results announcement).
+              The program runs in seven phases from planning through debrief. Week numbers describe
+              the full program structure.
             </p>
             <div class="timeline-row">
-              <span class="timeline-pill">Phase 1</span>
+              <span class="timeline-pill">1</span>
               <div>
-                <p class="timeline-title">Add first phase title</p>
-                <p class="timeline-text">Add details for this phase.</p>
+                <p class="timeline-title">Phase 1: Planning &amp; alignment (Weeks 1–4)</p>
+                <p class="timeline-text">
+                  Define asset classes and starting capital; secure IBKR involvement and sponsorship;
+                  lock technical requirements.
+                </p>
               </div>
             </div>
             <div class="timeline-row">
-              <span class="timeline-pill">Phase 2</span>
+              <span class="timeline-pill">2</span>
               <div>
-                <p class="timeline-title">Add second phase title</p>
-                <p class="timeline-text">Add details for this phase.</p>
+                <p class="timeline-title">Phase 2: Platform readiness &amp; rules (Weeks 5–8)</p>
+                <p class="timeline-text">
+                  Stress-test platform; draft and finalize rulebook. Rule Freeze 2 weeks before
+                  launch.
+                </p>
               </div>
             </div>
             <div class="timeline-row">
-              <span class="timeline-pill">Phase 3</span>
+              <span class="timeline-pill">3</span>
               <div>
-                <p class="timeline-title">Add third phase title</p>
-                <p class="timeline-text">Add details for this phase.</p>
+                <p class="timeline-title">Phase 3: Marketing &amp; recruitment (Weeks 9–11)</p>
+                <p class="timeline-text">
+                  Launch website and landing page; host info sessions; open registration.
+                </p>
               </div>
+            </div>
+            <div class="timeline-row">
+              <span class="timeline-pill">4</span>
+              <div>
+                <p class="timeline-title">Phase 4: Onboarding &amp; sandbox (Week 12)</p>
+                <p class="timeline-text">
+                  Distribute credentials; open 3–5 day practice environment; mandatory Rules &amp;
+                  Ethics webinar.
+                </p>
+              </div>
+            </div>
+            <div class="timeline-row">
+              <span class="timeline-pill">5</span>
+              <div>
+                <p class="timeline-title">Phase 5: Live trading (Weeks 13–16)</p>
+                <p class="timeline-text">
+                  Four weeks: daily leaderboard updates; Discord/Slack support; automated drawdown
+                  flags.
+                </p>
+              </div>
+            </div>
+            <div class="timeline-row">
+              <span class="timeline-pill">6</span>
+              <div>
+                <p class="timeline-title">Phase 6: Validation &amp; judging</p>
+                <p class="timeline-text">
+                  Freeze accounts; audit top portfolios; judge rationale submissions; final Audit
+                  Report.
+                </p>
+              </div>
+            </div>
+            <div class="timeline-row">
+              <span class="timeline-pill">7</span>
+              <div>
+                <p class="timeline-title">Phase 7: Awards &amp; debrief</p>
+                <p class="timeline-text">
+                  Awards ceremony with IBKR networking; post-event survey; ops team retrospective.
+                </p>
+              </div>
+            </div>
             </div>
           </div>
         </section>
 
-        <section class="section-grid" id="prizes">
-          <div class="section-copy">
-            <h2>Prizes & recognition</h2>
-            <p>
-              Use this area to describe your prize pool, recognition, and any additional perks or
-              opportunities for participants.
-            </p>
-            <ul class="prize-list">
-              <li>Add first place prize details.</li>
-              <li>Add second place prize details.</li>
-              <li>Add third place prize or other awards.</li>
-            </ul>
-          </div>
-          <div class="section-card highlight" id="register">
+        <section class="section-grid section-grid--single" id="register">
+          <div class="section-card highlight">
             <h3>Registration</h3>
-            <p>Describe how and where participants should register for your competition.</p>
-            <a href="#" class="primary-cta full-width">Add registration link</a>
-            <p class="small-print">Optional: add any registration notes or terms here.</p>
+            <p>
+              Registration opens during <strong>Phase 3 (Weeks 9–11)</strong>, alongside marketing and
+              info sessions. Teams must register by the published deadline; each participant may
+              belong to only one team.
+            </p>
+            <p class="registration-placeholder">Registration URL: posted when Phase 3 opens (Weeks 9–11).</p>
+            <p class="small-print">
+              For disputes or questions before the public link is posted, contact the Operations Lead
+              or use the official Discord/Slack support channel. All teams must sign a Rule
+              Acknowledgement before trading begins.
+            </p>
           </div>
         </section>
 
-        <section class="section-split" id="rules">
+        <section class="section-split" id="conduct">
           <div>
-            <h2>Eligibility & rules</h2>
+            <h2>Code of conduct &amp; integrity</h2>
             <ul class="rules-list">
-              <li>Add who is eligible to participate.</li>
-              <li>Add allowed team size and other constraints.</li>
-              <li>Add any technical or compliance requirements.</li>
-              <li>Add any important do’s and don’ts.</li>
+              <li>
+                <strong>Insider trading — zero tolerance:</strong> Insider trading is illegal and
+                will not be tolerated. Any team found using material, non-public information will be
+                immediately disqualified; the matter may be referred to university administration or
+                other authorities as appropriate.
+              </li>
+              <li>
+                <strong>Collusion &amp; manipulation:</strong> Teams may not coordinate trades with
+                other teams to manipulate leaderboard standings.
+              </li>
+              <li>
+                <strong>Account security:</strong> Teams may not share login credentials with anyone
+                outside the team. Each team is responsible for all activity on its account.
+              </li>
+              <li>
+                <strong>Academic integrity:</strong> All trades must be executed by registered team
+                members only. Participants must acknowledge the rulebook in writing before the
+                competition begins. Any violation of university academic integrity policies is also a
+                violation of this framework.
+              </li>
             </ul>
           </div>
           <div>
-            <h3>What you’ll submit</h3>
+            <h2>Reporting &amp; behavior</h2>
             <ul class="rules-list">
-              <li>Add what artefacts teams must provide (e.g., demo, code, write-up).</li>
-              <li>Add any format or length requirements.</li>
-              <li>Add where submissions should be uploaded or sent.</li>
+              <li>
+                <strong>Reporting:</strong> Suspicious activity must be reported immediately to the
+                Operations Lead or via the official support channel. Reports are reviewed by the
+                Steering Committee within <strong>48 hours</strong>.
+              </li>
+              <li>
+                <strong>Respect:</strong> Participants and organizers must treat each other with
+                respect. Harassment, discrimination, or abusive behavior toward others may result in
+                disqualification.
+              </li>
+              <li>
+                Organizers are expected to apply rules consistently and without favoritism.
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="section-split" id="governance">
+          <div>
+            <h2>Governance structure</h2>
+            <p class="timeline-text"><strong>Steering Committee</strong> (strategic authority)</p>
+            <p class="timeline-text">
+              Holds final decision-making authority on the rulebook, dispute resolution, and
+              long-term objectives. Includes the Student President, IBKR Sponsor Representative, and
+              Faculty Lead / University Representative.
+            </p>
+            <p class="timeline-text"><strong>Core operations team</strong></p>
+            <ul class="rules-list">
+              <li>
+                <strong>Operations Lead:</strong> Drives the team, manages timelines, assigns tasks,
+                ensures deadlines are met.
+              </li>
+              <li>
+                <strong>Tech Lead:</strong> Sets up and monitors the IBKR environment, manages data
+                feeds and leaderboards, handles technical issues.
+              </li>
+              <li>
+                <strong>Marketing Lead:</strong> Recruitment, social media, info sessions, and
+                participant communications.
+              </li>
+              <li>
+                <strong>Sponsor Lead:</strong> Primary contact between IBKR and the operations team;
+                may also serve as Finance Lead.
+              </li>
+            </ul>
+            <p class="timeline-text"><strong>Support team</strong></p>
+            <ul class="rules-list">
+              <li>
+                <strong>Judges:</strong> Define grading criteria, evaluate trade rationales, certify
+                the final leaderboard.
+              </li>
+              <li><strong>University IT:</strong> Assists with platform access and security.</li>
+              <li>
+                <strong>Faculty advisors:</strong> Ensure alignment with academic integrity standards.
+              </li>
+            </ul>
+            <p class="timeline-text">
+              A <strong>RACI-style responsibility matrix</strong> in the full published rules assigns who is
+              responsible, accountable, consulted, or informed for budgets, platform setup,
+              rulebook finalization, disputes, disqualification rulings, and final winner
+              certification across the Steering Committee, Ops Lead, Tech Lead, judges, and sponsors.
+            </p>
+          </div>
+          <div>
+            <h2>Disputes, amendments &amp; checkpoints</h2>
+            <p class="timeline-text"><strong>Dispute resolution</strong></p>
+            <ol class="steps-list">
+              <li>
+                Participant raises the issue via the official Discord/Slack support channel or by
+                emailing the Operations Lead.
+              </li>
+              <li>Operations Lead acknowledges within 24 hours and investigates.</li>
+              <li>If resolved at the operations level, the decision is documented and communicated.</li>
+              <li>If unresolved, the issue is escalated to the Steering Committee within 48 hours.</li>
+              <li>
+                The Steering Committee issues a <strong>final binding ruling</strong>. No further
+                appeals are permitted within the competition.
+              </li>
+            </ol>
+            <p class="timeline-text"><strong>Amendments &amp; interpretation</strong></p>
+            <ul class="rules-list">
+              <li>
+                Proposed changes must be submitted to the Operations Lead <strong>in writing</strong>.
+              </li>
+              <li>
+                Amendments require approval from the Steering Committee and must be made before the
+                Rule Freeze date.
+              </li>
+              <li>
+                After the Rule Freeze, <strong>no changes</strong> to the rulebook are permitted for
+                the duration of that competition cycle.
+              </li>
+              <li>
+                The Steering Committee holds <strong>final interpretive authority</strong> over all
+                rules. In cases of ambiguity, its ruling is binding. Rulings are documented and shared
+                with participants.
+              </li>
+            </ul>
+            <p class="timeline-text"><strong>Risk controls &amp; checkpoints</strong></p>
+            <ul class="rules-list">
+              <li>
+                <strong>Rule Freeze (2 weeks before launch):</strong> All rules are locked; no
+                amendments after this date so the field is fair for everyone.
+              </li>
+              <li>
+                <strong>Tech Green-Light (48 hours pre-launch):</strong> The Tech Lead certifies that
+                data feeds are live, latency is acceptable, and the platform can handle competition
+                load.
+              </li>
+              <li>
+                <strong>Mid-competition health check (end of Week 2):</strong> Operations Lead
+                reviews leaderboard integrity, flags suspicious activity, and confirms support
+                channels are functioning.
+              </li>
+              <li>
+                The <strong>sandbox phase</strong> (practice before live trading) lets participants
+                learn the system in a consequence-free environment.
+              </li>
+              <li>
+                All participants must attend or watch the mandatory <strong>Rules &amp; Ethics</strong>
+                webinar before trading begins.
+              </li>
+              <li>
+                All teams must sign a <strong>Rule Acknowledgement</strong> before trading begins.
+                Clear disqualification rules for collusion and insider trading protect the
+                university’s reputation and IBKR’s brand.
+              </li>
             </ul>
           </div>
         </section>
@@ -203,32 +599,83 @@
           <h2>FAQ</h2>
           <div class="faq-grid">
             <details>
-              <summary>Add an FAQ question</summary>
-              <p>Add the answer to your FAQ question here.</p>
+              <summary>Can I use AI?</summary>
+              <p>
+                Yes for research, screening, and analysis (for example summarizing news or using
+                screeners). Automated trading, bots, macros, or anything that executes without
+                direct human decision-making per trade is strictly prohibited and may lead to
+                disqualification.
+              </p>
             </details>
             <details>
-              <summary>Add another FAQ question</summary>
-              <p>Add the answer here.</p>
+              <summary>How big can my team be?</summary>
+              <p>
+                Teams must have 2–4 members. Every member must be a currently enrolled UIUC student,
+                and each person may only compete on one team.
+              </p>
             </details>
             <details>
-              <summary>Add a question about the chatbot</summary>
-              <p>Use this to explain how your chatbot works or how it is used.</p>
+              <summary>What can we trade?</summary>
+              <p>
+                U.S. equities, ETFs, and—when supported and enabled—futures and listed equity options.
+                Derivatives are allowed only if IBKR supports them and organizers enable them.
+                Cryptocurrencies, bonds, and forex are prohibited. Margin is not allowed unless
+                explicitly supported in the IBKR demo configuration.
+              </p>
             </details>
             <details>
-              <summary>Add any other common question</summary>
-              <p>Add the answer here.</p>
+              <summary>When can we place trades?</summary>
+              <p>
+                Only during the official competition period (dates to be confirmed), Monday through
+                Friday, 8:30 AM–3:00 PM Central Time. No trading on market holidays or outside those
+                hours.
+              </p>
+            </details>
+            <details>
+              <summary>How does scoring work?</summary>
+              <p>
+                Scoring is split <strong>50% / 50%</strong>: portfolio performance (final balance,
+                P&amp;L, and risk-adjusted metrics) and strategy &amp; rationale (trade memos, final
+                presentation or summary, and research quality, judged by a panel). Position-limit
+                violations reduce the P&amp;L score component; code-of-conduct issues may be
+                penalized or disqualified at judges’ discretion; confirmed algorithmic trading or
+                insider trading results in disqualification (with possible referral in the case of
+                insider trading).
+              </p>
+            </details>
+            <details>
+              <summary>How do I report a problem or dispute?</summary>
+              <p>
+                Use the official Discord/Slack support channel or email the Operations Lead. The
+                Operations Lead responds within 24 hours; unresolved matters can be escalated to the
+                Steering Committee, whose decision is final for the competition.
+              </p>
+            </details>
+            <details>
+              <summary>What does the TRACE chatbot do?</summary>
+              <p>
+                TRACE helps you navigate this site and common questions. Binding interpretations,
+                disputes, and formal rulings follow the Operations Lead and Steering Committee
+                process described on this page.
+              </p>
             </details>
           </div>
         </section>
       </main>
 
       <footer class="site-footer">
-        <p>Add your competition or organization name here.</p>
-        <p class="footer-meta">Add footer details, sponsors, or contact info here.</p>
+        <p>
+          <strong>Gies IBKR Trading Competition</strong> · Official Rules Charter &amp; Governance
+          Framework · Gies College of Business, University of Illinois Urbana-Champaign · Gies
+          Disruption Lab (DLAB Consulting)
+        </p>
+        <p class="footer-meta">
+          Partners: Gies x IBKR x Bridgewater · Version 2.0 (Spring 2026), draft — pending approval ·
+          Prepared by Grace, Daniel, Pranav, Amar, Villy, Paul, Elizabeth, Nathan
+        </p>
       </footer>
     </div>
 
     <script src="script.js"></script>
   </body>
 </html>
-
