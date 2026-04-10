@@ -5,11 +5,9 @@
   "description": "Static landing page showcasing an IBKR trading chatbot demo and trading competition details.",
   "type": "module",
   "scripts": {
-    "start": "node server.js"
   },
   "dependencies": {
     "dotenv": "^16.6.1",
     "express": "^4.21.2"
   }
 }
-

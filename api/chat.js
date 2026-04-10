@@ -1,17 +1,20 @@
 import express from 'express';
-import path from 'path';
-import { fileURLToPath } from 'url';
 import dotenv from 'dotenv';
 
 dotenv.config();
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
 const app = express();
-
 app.use(express.json({ limit: '1mb' }));
-app.use(express.static(__dirname));
+
+app.get('/api/chat/debug-env', (req, res) => {
+  const raw = process.env.CHATBOT_API_KEY;
+  res.json({
+    hasChatbotKey: typeof raw === 'string' && raw.trim().length > 0,
+    keyLength: typeof raw === 'string' ? raw.length : 0,
+    vercelEnv: process.env.VERCEL_ENV || null,
+    nodeEnv: process.env.NODE_ENV || null,
+  });
+});
 
 function requireEnv(name) {
   const value = process.env[name];
@@ -34,9 +37,7 @@ app.post('/api/chat', async (req, res) => {
 
     const upstream = await fetch('https://chat.illinois.edu/api/chat-api/chat', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         model: 'qwen3:32b',
         messages: [
@@ -58,10 +59,8 @@ app.post('/api/chat', async (req, res) => {
     });
 
     const rawText = await upstream.text();
-    console.log('UPSTREAM STATUS =', upstream.status);
-    console.log('UPSTREAM TEXT =', rawText);
 
-    let data = null;
+    let data;
     try {
       data = JSON.parse(rawText);
     } catch {
@@ -96,7 +95,4 @@ app.post('/api/chat', async (req, res) => {
   }
 });
 
-const port = Number(process.env.PORT || 3000);
-app.listen(port, () => {
-  console.log(`Server running on http://localhost:${port}`);
-});
+export default app;
