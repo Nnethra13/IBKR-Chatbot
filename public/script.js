@@ -1,18 +1,44 @@
-const chatBody = document.getElementById('chat-body');
-const chatForm = document.getElementById('chat-form');
-const chatInput = document.getElementById('chat-input');
+// ── CHAT PANEL OPEN / CLOSE ──
+const panel = document.getElementById('chat-panel');
+const overlay = document.getElementById('chat-overlay');
+const msgs = document.getElementById('chat-messages');
+const input = document.getElementById('chat-input');
 
+function openChat() {
+  panel.classList.add('open');
+  overlay.classList.add('open');
+}
+
+function closeChat() {
+  panel.classList.remove('open');
+  overlay.classList.remove('open');
+}
+
+document.getElementById('open-chat').addEventListener('click', openChat);
+document.getElementById('open-chat-hero').addEventListener('click', openChat);
+document.getElementById('close-chat').addEventListener('click', closeChat);
+overlay.addEventListener('click', closeChat);
+
+// ── CHIP SUGGESTIONS ──
+document.querySelectorAll('.chip').forEach(c => {
+  c.addEventListener('click', () => {
+    openChat();
+    sendMessage(c.dataset.q);
+  });
+});
+
+// ── MESSAGE HELPERS ──
 function appendMessage(text, role = 'bot') {
   const bubble = document.createElement('div');
   bubble.className = `chat-bubble ${role}`;
 
-  const p = document.createElement('div');
+  const content = document.createElement('div');
   if (role === 'bot') {
-    p.innerHTML = marked.parse(text);
+    content.innerHTML = typeof marked !== 'undefined' ? marked.parse(text) : text;
   } else {
-    p.textContent = text;
+    content.textContent = text;
   }
-  bubble.appendChild(p);
+  bubble.appendChild(content);
 
   const ts = document.createElement('span');
   ts.className = 'timestamp';
@@ -22,26 +48,24 @@ function appendMessage(text, role = 'bot') {
   ts.textContent = `Today • ${hh}:${mm}`;
   bubble.appendChild(ts);
 
-  chatBody.appendChild(bubble);
-  chatBody.scrollTop = chatBody.scrollHeight;
+  msgs.appendChild(bubble);
+  msgs.scrollTop = msgs.scrollHeight;
 }
 
-function showTypingIndicator(label = 'Thinking') {
+function showTypingIndicator() {
   const bubble = document.createElement('div');
-  bubble.className = 'chat-bubble bot typing-indicator';
+  bubble.className = 'chat-bubble bot';
   bubble.id = 'typing-bubble';
-
   bubble.innerHTML = `
     <div class="thinking-row">
-      <span class="thinking-text">${label}</span>
+      <span class="thinking-text">Thinking</span>
       <span class="typing-dots">
         <span></span><span></span><span></span>
       </span>
     </div>
   `;
-
-  chatBody.appendChild(bubble);
-  chatBody.scrollTop = chatBody.scrollHeight;
+  msgs.appendChild(bubble);
+  msgs.scrollTop = msgs.scrollHeight;
 }
 
 function removeTypingIndicator() {
@@ -49,6 +73,7 @@ function removeTypingIndicator() {
   if (el) el.remove();
 }
 
+// ── API CALL ──
 async function fetchBotReply(message) {
   const response = await fetch('/api/chat', {
     method: 'POST',
@@ -64,41 +89,42 @@ async function fetchBotReply(message) {
   return data?.reply || 'Sorry — I did not get a response.';
 }
 
-if (chatForm && chatInput) {
-  chatForm.addEventListener('submit', (event) => {
-    event.preventDefault();
-    void (async () => {
-      const text = chatInput.value.trim();
-      if (!text) return;
+// ── SEND ──
+async function sendMessage(text) {
+  if (!text || !text.trim()) return;
+  appendMessage(text, 'user');
+  input.value = '';
+  input.disabled = true;
+  showTypingIndicator();
 
-      appendMessage(text, 'user');
-      chatInput.value = '';
-
-      chatInput.disabled = true;
-      showTypingIndicator(); // <-- show dots while waiting
-
-      try {
-        const reply = await fetchBotReply(text);
-        removeTypingIndicator(); // <-- remove dots before showing reply
-        appendMessage(reply, 'bot');
-      } catch (err) {
-        removeTypingIndicator();
-        appendMessage(
-          `Couldn't reach the chatbot server.\n\n${err instanceof Error ? err.message : 'Unknown error'}`,
-          'bot',
-        );
-      } finally {
-        chatInput.disabled = false;
-        chatInput.focus();
-      }
-    })();
-  });
+  try {
+    const reply = await fetchBotReply(text);
+    removeTypingIndicator();
+    appendMessage(reply, 'bot');
+  } catch (err) {
+    removeTypingIndicator();
+    appendMessage(
+      `Couldn't reach the chatbot server.\n\n${err instanceof Error ? err.message : 'Unknown error'}`,
+      'bot'
+    );
+  } finally {
+    input.disabled = false;
+    input.focus();
+  }
 }
 
-// Initial welcome message from the chatbot
-if (chatBody) {
-  appendMessage(
-    "Hi! I am here to help with the IBKR competition. Ask me anything about the rules, timeline, deliverables, or logistics, and I will point you to the relevant info! If something isn't covered in our materials, I will direct you in the right direction!",
-    'bot',
-  );
-}
+// Expose for any inline usage
+window.handleChatMessage = (text, cb) => {
+  fetchBotReply(text).then(cb).catch(() => cb('Sorry, something went wrong.'));
+};
+
+document.getElementById('chat-send').addEventListener('click', () => sendMessage(input.value));
+input.addEventListener('keydown', e => {
+  if (e.key === 'Enter') sendMessage(input.value);
+});
+
+// ── WELCOME MESSAGE ──
+appendMessage(
+  "Hi! I'm **TRACE**, your competition assistant. Ask me about rules, eligibility, scoring, trading hours, or anything else about the Gies × IBKR competition.",
+  'bot'
+);
