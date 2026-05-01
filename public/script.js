@@ -124,7 +124,3 @@ input.addEventListener('keydown', e => {
 });
 
 // ── WELCOME MESSAGE ──
-appendMessage(
-  "Hi! I'm **TRACE**, your competition assistant. Ask me about rules, eligibility, scoring, trading hours, or anything else about the Gies × IBKR competition.",
-  'bot'
-);

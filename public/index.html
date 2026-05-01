@@ -1195,58 +1195,6 @@
 </div>
 
 <script src="script.js"></script>
-<script>
-  const panel = document.getElementById('chat-panel');
-  const overlay = document.getElementById('chat-overlay');
-  const msgs = document.getElementById('chat-messages');
-  const input = document.getElementById('chat-input');
 
-  function openChat() { panel.classList.add('open'); overlay.classList.add('open'); }
-  function closeChat() { panel.classList.remove('open'); overlay.classList.remove('open'); }
-
-  document.getElementById('open-chat').addEventListener('click', openChat);
-  document.getElementById('open-chat-hero').addEventListener('click', openChat);
-  document.getElementById('close-chat').addEventListener('click', closeChat);
-  overlay.addEventListener('click', closeChat);
-
-  function addBubble(text, type) {
-    const d = document.createElement('div');
-    d.className = 'chat-bubble ' + type;
-    d.innerHTML = text;
-    msgs.appendChild(d);
-    msgs.scrollTop = msgs.scrollHeight;
-    return d;
-  }
-
-  function showTyping() {
-    const d = document.createElement('div');
-    d.className = 'chat-bubble bot';
-    d.innerHTML = '<div class="typing-indicator"><span></span><span></span><span></span></div>';
-    msgs.appendChild(d);
-    msgs.scrollTop = msgs.scrollHeight;
-    return d;
-  }
-
-  function sendMessage(text) {
-    if (!text.trim()) return;
-    addBubble(text, 'user');
-    input.value = '';
-    const t = showTyping();
-    if (typeof window.handleChatMessage === 'function') {
-      window.handleChatMessage(text, reply => { t.remove(); addBubble(reply, 'bot'); });
-    } else {
-      setTimeout(() => {
-        t.remove();
-        addBubble('Thanks for your question! Check the relevant section in the navigation above, or contact the Operations Lead for official guidance.', 'bot');
-      }, 850);
-    }
-  }
-
-  document.getElementById('chat-send').addEventListener('click', () => sendMessage(input.value));
-  input.addEventListener('keydown', e => { if (e.key === 'Enter') sendMessage(input.value); });
-  document.querySelectorAll('.chip').forEach(c => {
-    c.addEventListener('click', () => { openChat(); sendMessage(c.dataset.q); });
-  });
-</script>
 </body>
 </html>
