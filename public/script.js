@@ -113,11 +113,6 @@ async function sendMessage(text) {
   }
 }
 
-// Expose for any inline usage
-window.handleChatMessage = (text, cb) => {
-  fetchBotReply(text).then(cb).catch(() => cb('Sorry, something went wrong.'));
-};
-
 document.getElementById('chat-send').addEventListener('click', () => sendMessage(input.value));
 input.addEventListener('keydown', e => {
   if (e.key === 'Enter') sendMessage(input.value);
