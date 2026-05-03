@@ -122,6 +122,23 @@ document.getElementById('chat-send').addEventListener('click', () => sendMessage
 input.addEventListener('keydown', e => {
   if (e.key === 'Enter') sendMessage(input.value);
 });
+// ── DISCLAIMER MODAL ──
+const disclaimerOverlay = document.getElementById('disclaimer-overlay');
+const disclaimerModal   = document.getElementById('disclaimer-modal');
+
+function openDisclaimer() {
+  disclaimerOverlay.classList.add('open');
+  disclaimerModal.classList.add('open');
+}
+function closeDisclaimer() {
+  disclaimerOverlay.classList.remove('open');
+  disclaimerModal.classList.remove('open');
+}
+
+document.getElementById('open-disclaimer').addEventListener('click', openDisclaimer);
+document.getElementById('close-disclaimer').addEventListener('click', closeDisclaimer);
+document.getElementById('accept-disclaimer').addEventListener('click', closeDisclaimer);
+disclaimerOverlay.addEventListener('click', closeDisclaimer);s
 
 // ── WELCOME MESSAGE ──
 appendMessage(

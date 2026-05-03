@@ -556,7 +556,7 @@
         <h3>TRACE</h3>
         <p>Trading Resource and Competition Engine</p>
       </div>
-      <span class="cph-badge">Demo</span>
+      <button class="cph-disclaimer-btn" id="open-disclaimer">⚠️ Disclaimer</button>
     </div>
     <button class="chat-close" id="close-chat">✕</button>
   </div>
@@ -573,6 +573,21 @@
   <div class="chat-input-area">
     <input type="text" id="chat-input" placeholder="Ask about rules, scoring, eligibility…" />
     <button class="chat-send" id="chat-send">Send</button>
+  </div>
+</div>
+
+<div class="disclaimer-overlay" id="disclaimer-overlay"></div>
+<div class="disclaimer-modal" id="disclaimer-modal">
+  <div class="dm-header">
+    <span class="dm-icon">⚠️</span>
+    <h3>Disclaimer</h3>
+    <button class="dm-close" id="close-disclaimer">✕</button>
+  </div>
+  <div class="dm-body">
+    <p> All participants remain subject to the University of Illinois Urbana-Champaign's academic integrity and conduct policies in addition to the competition framework.</p>
+  </div>
+  <div class="dm-footer">
+    <button class="dm-accept" id="accept-disclaimer">Got it</button>
   </div>
 </div>
 
