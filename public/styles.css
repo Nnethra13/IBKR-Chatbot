@@ -1021,10 +1021,10 @@ body {
 
 .chat-panel {
   position: fixed;
-  right: -460px;
+  right: -575px;
   top: 0;
   bottom: 0;
-  width: 520px;
+  width: 575px;
   background: var(--white);
   z-index: 200;
   display: flex;
