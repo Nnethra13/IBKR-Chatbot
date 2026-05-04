@@ -142,6 +142,6 @@ disclaimerOverlay.addEventListener('click', closeDisclaimer);
 
 // ── WELCOME MESSAGE ──
 appendMessage(
-  "Hi! I'm **TRACE**, your competition assistant. Ask me about rules, eligibility, scoring, trading hours, or anything else about the Gies × IBKR competition.",
+  "Hi! I am here to help with the IBKR competition. Ask me anything about the rules, timeline, deliverables, or logistics, and I will point you to the relevant info! If something isn’t covered in our materials, I will direct you to the right direction!",
   'bot'
 );
