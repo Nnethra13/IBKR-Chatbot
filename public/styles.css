@@ -1483,3 +1483,7 @@ body {
   transition: background 0.15s;
 }
 .dm-accept:hover { background: var(--orange-warm); }
+.nav-brand-badge {
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
