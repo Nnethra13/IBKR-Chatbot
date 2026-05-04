@@ -138,7 +138,7 @@ function closeDisclaimer() {
 document.getElementById('open-disclaimer').addEventListener('click', openDisclaimer);
 document.getElementById('close-disclaimer').addEventListener('click', closeDisclaimer);
 document.getElementById('accept-disclaimer').addEventListener('click', closeDisclaimer);
-disclaimerOverlay.addEventListener('click', closeDisclaimer);s
+disclaimerOverlay.addEventListener('click', closeDisclaimer);
 
 // ── WELCOME MESSAGE ──
 appendMessage(
