@@ -39,7 +39,7 @@ app.post('/api/chat', async (req, res) => {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        model: 'Qwen 2.5vL 72B',
+        model: 'Qwen2.5-VL-72B-Instruct',
         messages: [
           {
             role: 'system',
