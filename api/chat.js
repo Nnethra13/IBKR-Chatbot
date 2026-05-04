@@ -35,7 +35,7 @@ app.post('/api/chat', async (req, res) => {
       return res.status(400).json({ error: 'Missing message' });
     }
 
-    const upstream = await fetch('https://chat.illinois.edu/api/chat-api/chat', {
+    const upstream = await fetch('https://uiuc.chat/api/chat-api/chat', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
